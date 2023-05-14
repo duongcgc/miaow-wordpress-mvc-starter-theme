@@ -1,4 +1,5 @@
 <?php
+
 namespace Miaow\Hooks;
 
 use Miaow\Helpers\PostTypeHelper;
@@ -10,10 +11,8 @@ require_once(get_template_directory() . '/Config/constants.config.php');
  * Contains WordPress Hooks
  *
  */
-class WordPressHooks
-{
-    public function __construct()
-    {
+class WordPressHooks {
+    public function __construct() {
         // On WP Init
         add_action('init', [$this, 'onWPInit']);
         // On WP admin init
@@ -48,8 +47,7 @@ class WordPressHooks
      *
      * @return void
      */
-    public function onWPInit()
-    {
+    public function onWPInit() {
         // Load Custom Post Types
         PostTypeHelper::registerPostTypes();
         // Disable comments
@@ -63,8 +61,7 @@ class WordPressHooks
      *
      * @return void
      */
-    public function onWPAdminInit()
-    {
+    public function onWPAdminInit() {
         global $pagenow;
         if ($pagenow === 'edit-comments.php') {
             wp_redirect(admin_url());
@@ -88,8 +85,7 @@ class WordPressHooks
      *
      * @return void
      */
-    public function onWPAdminMenu()
-    {
+    public function onWPAdminMenu() {
         // Disable comments
         remove_menu_page('edit-comments.php');
     }
@@ -101,8 +97,7 @@ class WordPressHooks
      *
      * @return array
      */
-    public function allowedUploadMimes($fileTypes)
-    {
+    public function allowedUploadMimes($fileTypes) {
         $newFileTypes = [];
         $newFileTypes['svg'] = 'image/svg+xml';
         $fileTypes = array_merge($fileTypes, $newFileTypes);
@@ -114,8 +109,7 @@ class WordPressHooks
      *
      * @return void
      */
-    public function onThemeSetUp()
-    {
+    public function onThemeSetUp() {
         // Include i18n support
         load_theme_textdomain(LANG_DOMAIN, THEME_PATH . '/Languages');
         // Include menus configuration
@@ -137,8 +131,7 @@ class WordPressHooks
      *
      * @return void
      */
-    public function onWPLoaded()
-    {
+    public function onWPLoaded() {
     }
 
     /**
@@ -146,8 +139,7 @@ class WordPressHooks
      *
      * @return void
      */
-    public function enqueueJavascriptFiles()
-    {
+    public function enqueueJavascriptFiles() {
         $jsFiles = require THEME_PATH . '/Config/javascriptFiles.config.php';
         if (!empty($jsFiles)) {
             foreach ($jsFiles as $jsFile) {
@@ -177,8 +169,7 @@ class WordPressHooks
      *
      * @return void
      */
-    public function enqueueStylesheets()
-    {
+    public function enqueueStylesheets() {
         $cssFiles = require THEME_PATH . '/Config/cssFiles.config.php';
         if (!empty($cssFiles)) {
             foreach ($cssFiles as $cssFile) {
@@ -202,8 +193,7 @@ class WordPressHooks
      *
      * @return void
      */
-    public function registerImagesConfiguration()
-    {
+    public function registerImagesConfiguration() {
         $imagesConfiguration = require THEME_PATH . '/Config/images.config.php';
         if (!empty($imagesConfiguration)) {
             foreach ($imagesConfiguration as $imageConfiguration) {
@@ -229,8 +219,7 @@ class WordPressHooks
      *
      * @return array
      */
-    public function loadCustomTemplates($post_templates, $theme, $post, $post_type)
-    {
+    public function loadCustomTemplates($post_templates, $theme, $post, $post_type) {
         $customTemplates = require THEME_PATH . '/Config/customTemplates.config.php';
         if (!empty($customTemplates)) {
             foreach ($customTemplates as $postType => $postTypeCustomTemplates) {

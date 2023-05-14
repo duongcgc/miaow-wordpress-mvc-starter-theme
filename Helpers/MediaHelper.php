@@ -1,14 +1,13 @@
 <?php
+
 namespace Miaow\Helpers;
 
 /**
  * Media Helper Class
  *
  **/
-class MediaHelper
-{
-    public function __construct()
-    {
+class MediaHelper {
+    public function __construct() {
     }
 
     /**
@@ -18,8 +17,7 @@ class MediaHelper
      *
      * @return string svg file content
      **/
-    public static function getSVG($pathImage)
-    {
+    public static function getSVG($pathImage) {
         $fileContent = '';
         if (file_exists($pathImage)) {
             $fileContent = file_get_contents($pathImage);
@@ -34,8 +32,7 @@ class MediaHelper
      *
      * @return string formatted bytes $bytes
      */
-    public static function getFormattedFileSize($bytes)
-    {
+    public static function getFormattedFileSize($bytes) {
         if ($bytes >= 1073741824) {
             $bytes = number_format($bytes / 1073741824, 2) . ' GB';
         } elseif ($bytes >= 1048576) {

@@ -1,21 +1,19 @@
 <?php
+
 namespace Miaow\Helpers;
 
 /**
  * Post Type Helper Class
  *
  **/
-class PostTypeHelper
-{
-    public function __construct()
-    {
+class PostTypeHelper {
+    public function __construct() {
     }
 
     /**
      * Register images configuration
      **/
-    public static function registerPostTypes()
-    {
+    public static function registerPostTypes() {
         $postTypes = require THEME_PATH . '/Config/postTypes.config.php';
         if (!empty($postTypes) && is_array($postTypes)) {
             foreach ($postTypes as $postTypeId => $postType) {
@@ -56,8 +54,7 @@ class PostTypeHelper
      * @param string $menuIcon : Menu icon
      * @return array
      **/
-    public static function getDefaultPostTypeConfiguration($postTypeSingularLabel, $postTypePluralLabel, $menuIcon = '')
-    {
+    public static function getDefaultPostTypeConfiguration($postTypeSingularLabel, $postTypePluralLabel, $menuIcon = '') {
         return [
             'labels'    => [
                 'name'                  => __(ucfirst($postTypeSingularLabel), 'post type general name', LANG_DOMAIN),
@@ -98,8 +95,7 @@ class PostTypeHelper
      * @param string $taxonomyPluralLabel : Plural label
      * @return array
      **/
-    public static function getDefaultTaxonomyConfiguration($taxonomySingularLabel, $taxonomyPluralLabel)
-    {
+    public static function getDefaultTaxonomyConfiguration($taxonomySingularLabel, $taxonomyPluralLabel) {
         return [
             'labels'        => [
                 'name'                  => __(ucfirst($taxonomyPluralLabel), 'taxonomy general name', LANG_DOMAIN),

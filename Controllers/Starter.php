@@ -1,4 +1,5 @@
 <?php
+
 namespace Miaow\Controllers;
 
 use \Timber;
@@ -11,10 +12,8 @@ use \Miaow\Helpers\MediaHelper;
  * This class starts theme, add theme supports,  load i18n, load context and apply to Twig, register images types, CSS / JS Files and Custom post types
  *
  */
-class Starter extends \TimberSite
-{
-    public function __construct()
-    {
+class Starter extends \TimberSite {
+    public function __construct() {
         // Define Timber Views folders
         Timber::$dirname = ['Templates', 'Views'];
         // Twig & Timber filters
@@ -33,8 +32,7 @@ class Starter extends \TimberSite
      *
      * @return array $context : General context modified
      */
-    public function addToContext($context)
-    {
+    public function addToContext($context) {
         $context['site'] = $this;
         return apply_filters('miaow_add_to_context', $context);
     }
@@ -46,8 +44,7 @@ class Starter extends \TimberSite
      *
      * @return object $twig
      */
-    public function addToTwig($twig)
-    {
+    public function addToTwig($twig) {
         $twig->addExtension(new \Twig_Extension_StringLoader());
         return $twig;
     }
@@ -60,8 +57,7 @@ class Starter extends \TimberSite
      *
      * @return array $context
      */
-    public function addMenusToContext($context)
-    {
+    public function addMenusToContext($context) {
         // Get registred menus
         $registredMenus = get_registered_nav_menus();
         if (!empty($registredMenus)) {

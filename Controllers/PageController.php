@@ -1,4 +1,5 @@
 <?php
+
 namespace Miaow\Controllers;
 
 use \Timber;
@@ -7,18 +8,15 @@ use \Timber;
  * Page controller
  *
  */
-class PageController extends BasicController
-{
-    public function __construct()
-    {
+class PageController extends BasicController {
+    public function __construct() {
     }
 
     /**
      * Render page
      *
      */
-    public function render()
-    {
+    public function render() {
         // Get context
         $context = Timber::get_context();
         // Get Template vars and assign to context

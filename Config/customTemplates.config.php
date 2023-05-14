@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Current post custom templates
  *
@@ -16,13 +17,12 @@
 return apply_filters('miaow_custom_templates', [
 
     /**
-     * Here an example to add a custom template linked with post type
-     *
-     */
+ * Here an example to add a custom template linked with post type
+ *
+ */
 
     /*
     'page'  => [
         'contact-page.twig' => 'Contact page',
     ]
-    */
-]);
+    */]);

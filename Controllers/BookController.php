@@ -1,4 +1,5 @@
 <?php
+
 namespace Miaow\Controllers;
 
 use \Timber;
@@ -7,10 +8,8 @@ use \Timber;
  * Custom Post type "Book" Controller (Create for example)
  *
  */
-class BookController extends BasicController
-{
-    public function __construct()
-    {
+class BookController extends BasicController {
+    public function __construct() {
         parent::__construct();
     }
 
@@ -18,8 +17,7 @@ class BookController extends BasicController
      * Here an example of Render function override
      *
      */
-    public function render()
-    {
+    public function render() {
         if (is_archive()) {
             // Archive stuff
         } else {

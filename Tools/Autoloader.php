@@ -1,4 +1,5 @@
 <?php
+
 namespace Miaow;
 
 /**
@@ -6,26 +7,23 @@ namespace Miaow;
  *
  * This class is a custom autoload and load class when it fires
  */
-class Autoloader
-{
+class Autoloader {
 
     /**
      * Start starter theme Autoloader
      */
-    public static function register()
-    {
+    public static function register() {
         spl_autoload_register(
             [__CLASS__, 'autoload']
         );
     }
 
     /**
-    * Include file corresponds to loaded class
-    *
-    * @param string $class : Class name
-    */
-    public static function autoload($class)
-    {
+     * Include file corresponds to loaded class
+     *
+     * @param string $class : Class name
+     */
+    public static function autoload($class) {
         $class = str_replace(__NAMESPACE__ . '\\', '', $class);
         $class = str_replace('\\', '/', $class);
         if (!empty($class)) {

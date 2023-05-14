@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom Javascript Files to enqueue
  *

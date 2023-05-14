@@ -1,4 +1,5 @@
 <?php
+
 namespace Miaow\Controllers;
 
 use Miaow\Controllers\Starter;
@@ -11,10 +12,8 @@ use \Timber;
  *
  */
 
-class BasicController
-{
-    public function __construct()
-    {
+class BasicController {
+    public function __construct() {
     }
 
     /**
@@ -22,8 +21,7 @@ class BasicController
      *
      * Check Timber librairy exists and fire Starter Controller to install theme
      */
-    public function initTheme()
-    {
+    public function initTheme() {
         $timber = new \Timber\Timber();
         if (!class_exists('Timber')) {
             add_action('admin_notices', function () {
@@ -48,8 +46,7 @@ class BasicController
      *
      * @return string Controller to use
      */
-    public function overrideTemplateHierarchy()
-    {
+    public function overrideTemplateHierarchy() {
         return $this->loadController();
     }
 
@@ -58,8 +55,7 @@ class BasicController
      *
      * @return object $ctrlToLoad : loaded controller
      */
-    private function loadController()
-    {
+    private function loadController() {
         global $wp_query;
         $ctrlToLoad = '';
         // Single Template
@@ -117,13 +113,13 @@ class BasicController
         }
         // Search
         if (is_search()) {
-            if (file_exists(CTRL_PATH.'/SearchController.php')) {
+            if (file_exists(CTRL_PATH . '/SearchController.php')) {
                 $ctrlToLoad = new SearchController();
             }
         }
         // 404
         if (is_404() || empty($ctrlToLoad)) {
-            if (file_exists(CTRL_PATH.'/Error404Controller.php')) {
+            if (file_exists(CTRL_PATH . '/Error404Controller.php')) {
                 $ctrlToLoad = new Error404Controller();
             }
         }
@@ -134,8 +130,7 @@ class BasicController
      * Render Template
      *
      **/
-    public function render()
-    {
+    public function render() {
         $context = Timber::get_context();
         $context = apply_filters('miaow_render_context', $context);
 

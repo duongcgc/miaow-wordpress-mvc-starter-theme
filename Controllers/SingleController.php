@@ -1,4 +1,5 @@
 <?php
+
 namespace Miaow\Controllers;
 
 use \Timber;
@@ -7,18 +8,15 @@ use \Timber;
  * Single post and generic single controller
  *
  */
-class SingleController extends BasicController
-{
-    public function __construct()
-    {
+class SingleController extends BasicController {
+    public function __construct() {
     }
 
     /**
      * Render post
      *
      */
-    public function render()
-    {
+    public function render() {
         // Get Template vars and assign to context
         $post = new \TimberPost();
         $context = Timber::get_context();

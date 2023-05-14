@@ -1,4 +1,5 @@
 <?php
+
 namespace Miaow\Hooks;
 
 // Include Constants
@@ -8,10 +9,8 @@ require_once(get_template_directory() . '/Config/constants.config.php');
  * Contains Advandced Custom Fields Hooks
  *
  **/
-class acfHooks
-{
-    public function __construct()
-    {
+class acfHooks {
+    public function __construct() {
         // On ACF Init
         add_action('acf/init', [$this, 'onACFInit']);
         // On ACF Save JSON (Synchronise Fields)
@@ -25,8 +24,7 @@ class acfHooks
      *
      * @return void
      */
-    public function onACFInit()
-    {
+    public function onACFInit() {
         // Google Maps API key
         acf_update_setting('google_api_key', GOOGLE_MAPS_API_KEY);
     }
@@ -38,8 +36,7 @@ class acfHooks
      *
      * @return string $path
      */
-    public function onACFSaveFields($path)
-    {
+    public function onACFSaveFields($path) {
         $path = FIELDS_PATH;
         return $path;
     }
@@ -51,8 +48,7 @@ class acfHooks
      *
      * @return string $paths
      */
-    public function onACFLoadFields($paths)
-    {
+    public function onACFLoadFields($paths) {
         // remove original path (optional)
         unset($paths[0]);
         // append path

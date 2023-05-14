@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Here Javascript variables loaded in DOM
  *

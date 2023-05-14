@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom image sizes
  *
