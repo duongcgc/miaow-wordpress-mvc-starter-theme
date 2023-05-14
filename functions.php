@@ -1,4 +1,5 @@
 <?php
+
 use Miaow\Autoloader;
 use Miaow\Helpers\MediaHelper;
 use Miaow\Hooks\WordPressHooks;
@@ -19,6 +20,10 @@ Autoloader::register();
 // WordPress Hooks
 new WordPressHooks();
 
+if (!function_exists('is_plugin_active')) {
+    include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+}
+
 // ACF Hooks if ACF Pro is installed
 if (is_plugin_active('advanced-custom-fields-pro/acf.php')) {
     new acfHooks();
@@ -28,7 +33,6 @@ if (is_plugin_active('advanced-custom-fields-pro/acf.php')) {
  * Get formatted filesize - Usable from template file
  *
  */
-function get_formatted_filesize($bytes)
-{
+function get_formatted_filesize($bytes) {
     return MediaHelper::getFormattedFileSize($bytes);
 }
